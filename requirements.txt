@@ -1,0 +1,6 @@
+falcon
+passlib
+gunicorn
+pyodbc
+jsonschema
+falcon-multipart

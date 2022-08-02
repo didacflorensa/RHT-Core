@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+
+
+  #static_file_server:
+    #image: nginx:latest
+    #ports:
+    #  - 8001:80
+    #volumes:
+    #  - ../../static/.:/usr/share/nginx/html/static
+
+  mysql_db_container:
+    image: 'mysql:latest'
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: Od294o1#JLhYxKCh
+      MYSQL_DATABASE: dev_test
+      MYSQL_USER: spv
+      MYSQL_PASSWORD: asedat2020
+    ports:
+      - 3306:3306
+    cap_add:
+      - SYS_NICE
+  
+  adminer_container:
+    image: adminer:latest
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql_db_container
+    ports:
+      - 8081:8081
+  
+
+  
+
