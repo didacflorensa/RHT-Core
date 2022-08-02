@@ -6,6 +6,6 @@ services:
                 ports:
                         - "8000:8000"
                 volumes:
-                        - ../../starter-kit-rht/.:/app
+                        - ../../RHT-Core/.:/app
                         - ../../static/.:/static
                 tty: true
