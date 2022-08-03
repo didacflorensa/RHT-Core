@@ -3,4 +3,6 @@ passlib
 gunicorn
 pyodbc
 jsonschema
+json
 falcon-multipart
+mysql-connector-python

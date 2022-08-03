@@ -1,13 +1,20 @@
 import falcon
+from resources import tumors, pacients
+import logging.config
+from falcon_multipart.middleware import MultipartMiddleware
+from database import db
 
-class TestResource(object):
-	def on_get(self, req, res):
-		res.status = falcon.HTTP_200
-		res.body = ("This is me, Falcon, serving a resource!")
+# LOGGING
+
+app = application = falcon.API(
+    middleware=[
+        MultipartMiddleware()
+    ]
+)
+
+db.init()
 
 
-app = falcon.API()
-
-test_resource = TestResource()
-
-app.add_route('/', test_resource)
+app.add_route('/tumors', tumors.Tumours())
+app.add_route('/pacients', pacients.Pacients())
+app.add_route('/pacient/{sap}', pacients.Pacient())
